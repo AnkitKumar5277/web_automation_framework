@@ -33,7 +33,6 @@ Supports **parallel execution, reporting, database validation, and environment m
 
 Clone the repo and install dependencies:  
 
-```bash
 git clone https://github.com/your-username/web-automation-framework.git
 cd web-automation-framework
 
