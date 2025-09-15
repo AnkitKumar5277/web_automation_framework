@@ -146,7 +146,7 @@ This project is licensed under the MIT License.
 
 ---
 
-Do you want me to also **add GitHub badges (build, pytest, allure, Python version, etc.)** at the top of the `README.md` to make it look more professional?
+
 
 
 
