@@ -4,6 +4,7 @@ A robust **Web Automation Framework** built with **Python, Selenium, and PyTest*
 Supports **parallel execution, reporting, database validation, and environment management**.  
 ---
 
+
 ## 🛠 Tech Stack
 - **Language**: Python  
 - **Test Runner**: PyTest  
