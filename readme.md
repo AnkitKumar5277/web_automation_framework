@@ -1,5 +1,6 @@
 # 🚀 Web Automation Framework (Python + Selenium + PyTest)
 
+
 A robust **Web Automation Framework** built with **Python, Selenium, and PyTest** using **Page Object Model (POM)** and **Page Factory** design patterns.  
 Supports **parallel execution, reporting, database validation, and environment management**.  
 
