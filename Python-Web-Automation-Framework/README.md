@@ -1,30 +1,101 @@
-# Web Automation Framework with POM in Python(Selenium)
+### Web Automation Framework (Python + Selenium + POM)
+A robust Web Automation Framework built with Python, Selenium, and PyTest using Page Object Model (POM) and Page Factory design patterns.
+Supports parallel execution, reporting, database validation, and environment management.
 
 ### Tech Stack
-- Python, PyTest
-- Selenium
-- Allure Report
-- Gitignore, PyTest Report
-- Page Object Model and Page Factory both
-- Highlight element while run
-- Parallel Run with xdist
-- MY SQL data base connect to verify data.
+- Language: Python
+- Test Runner: PyTest
+- Automation Tool: Selenium
+- Reporting: Allure Reports, PyTest HTML Reports
+- Parallel Execution: PyTest-xdist
+- Database Validation: MySQL Connector
+- Data Management: OpenPyXL, Faker, YAML, dotenv
 
-### All the dependencies used
-- pip install allure-pytest selenium
-- pip install pytest selenium pytest-html openpyxl 
-- pip install selenium-page-factory 
-- pip install pyyaml faker openpyxl
-- pip install pytest-xdist 
-- pip install mysql-connector-python
-- pip install pytest-reportportal
-- pip install python-dotenv
+### Features
+✔ Page Object Model (POM) and Page Factory  
+✔ Highlight elements while execution  
+✔ Parallel test execution with pytest-xdist  
+✔ Allure & HTML reports integration  
+✔ MySQL DB connectivity for validation  
+✔ External test data handling with Excel, YAML, .env  
+✔ ReportPortal integration (optional)
 
-### How to run the Framework?
+### Run all test cases (parallel execution)
+```
 pytest -n auto tests/vwoLoginTests/pom/test_*
+```
+### Run a specific test case
+```
+pytest -n auto tests/vwoLoginTests/test_vwo_login.py
+```
+### Generate Allure Report
+```
+pytest --alluredir=reports/allure-results
+```
+```
+allure serve reports/allure-results
+```
+### Generate PyTest HTML Report
+```
+pytest --html=reports/report.html --self-contained-html
+```
+### MySQL Database Validation
+This framework connects to MySQL database to verify test data.
+You can configure DB credentials in .env file:
+```
+import mysql.connector
 
-### How to run Testcase parallel ?
-pytest -n auto tests/test/vwoLoginTests/test_vwo_login.py
+conn = mysql.connector.connect(
+    host="localhost",
+    user="root",
+    password="password",
+    database="test_db"
+)
+cursor = conn.cursor()
+cursor.execute("SELECT * FROM users;")
+result = cursor.fetchall()
+print(result)
+```
+
+### Environment Management
+Sensitive credentials & environment-specific details are stored in .env file.
+Example .env file:
+```
+DB_HOST=localhost
+DB_USER=root
+DB_PASS=password
+DB_NAME=test_db
+```
+Load them in code:
+```
+from dotenv import load_dotenv
+import os
+
+load_dotenv()
+username = os.getenv("USERNAME")
+password = os.getenv("PASSWORD")
+```
+
+
+### Project Structure
+```
+project-root/
+│── tests/
+│   ├── vwoLoginTests/
+│   │   ├── pom/
+│   │   │   └── test_*.py
+│   ├── pageObjects/
+│   ├── utils/
+│   ├── constants/
+│   └── __init__.py
+│
+│── .env
+│── pytest.ini
+│── requirements.txt
+│── README.md
+│── .gitignore
+```
+
 
 ![Screenshot 2024-11-22 at 9 12 15 PM](https://github.com/user-attachments/assets/1108a0d3-2f71-472a-8121-f4f3d62f1291)
 
